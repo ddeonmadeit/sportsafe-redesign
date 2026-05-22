@@ -18,6 +18,15 @@ export const Route = createFileRoute("/")({
 
 const SRC = "https://www.sportsafeaustralia.com.au/wp-content/uploads";
 
+const services = [
+  { n: "01", t: "Mobile Club Fittings", d: "We come to your club — registration days, training nights, family days. Up to 80+ fittings per two-hour session, juniors and seniors." },
+  { n: "02", t: "Custom Mouthguards", d: "Sixteen design ranges, from clean single colours to team logos, fangs, marbles and triple-colour combinations." },
+  { n: "03", t: "Doncaster East Clinic", d: "Private chair-side fittings at our denture and mouthguard clinic — full denture services available alongside." },
+  { n: "04", t: "Orthodontic Mouthguards", d: "Specially designed protection for athletes wearing braces — comfort, fit and full coverage without compromise." },
+  { n: "05", t: "Schools & Academies", d: "Bulk fittings for schools and elite academies. We handle the scheduling, paperwork and the kids — you just play." },
+  { n: "06", t: "Health Fund Rebates", d: "Item 151 receipts provided. Most major Australian health funds cover custom-fitted sports mouthguards." },
+];
+
 const styles = [
   { name: "Triple Colours", img: `${SRC}/2018/11/tricolor-e1541245972858.png` },
   { name: "Team Logos", img: `${SRC}/2018/11/customize-e1541248850926.png` },
@@ -28,223 +37,166 @@ const styles = [
 ];
 
 const testimonials = [
-  {
-    quote:
-      "These guys are so professional at what they do. The mouthguards are pure AFL style custom made professionally fitted. We're receiving lots of compliments.",
-    name: "Andrew Gommers",
-    role: "Northern Blues (VFL)",
-  },
-  {
-    quote:
-      "SportSafe Australia has been coming to Sydney to supply mouthguards to our club since 2009. The service they provide is excellent.",
-    name: "Chris Denier",
-    role: "Gymea Gorillas Junior Rugby League",
-  },
-  {
-    quote:
-      "Our junior football club has used SportSafe Australia as our main mouthguard supplier for over 10 years now.",
-    name: "Bruce Plant",
-    role: "South Melbourne District Sports Club",
-  },
+  { quote: "These guys are so professional at what they do. The mouthguards are pure AFL style custom made professionally fitted. We're receiving lots of compliments.", name: "Andrew Gommers", role: "Northern Blues (VFL)" },
+  { quote: "SportSafe Australia has been coming to Sydney to supply mouthguards to our club since 2009. The service they provide is excellent.", name: "Chris Denier", role: "Gymea Gorillas Junior Rugby League" },
+  { quote: "Our junior football club has used SportSafe Australia as our main mouthguard supplier for over 10 years now.", name: "Bruce Plant", role: "South Melbourne District Sports Club" },
 ];
+
+const Arrow = () => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}>
+    <path d="M5 12h14M13 5l7 7-7 7" />
+  </svg>
+);
 
 function Home() {
   return (
     <PageShell>
       {/* HERO */}
-      <section className="px-6 pt-24 md:pt-36 pb-24 md:pb-32 text-center">
-        <motion.p
-          initial={{ opacity: 0, y: 8 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          className="text-sm font-medium link-brand"
-        >
-          The Mouthguard Specialist
-        </motion.p>
-        <motion.h1
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.05 }}
-          className="mt-4 mx-auto max-w-4xl text-6xl md:text-8xl font-semibold tracking-tight leading-[0.95]"
-        >
-          Play hard.
-          <br />
-          <span style={{ color: "var(--brand)" }}>Wear a mouthguard.</span>
-        </motion.h1>
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.15 }}
-          className="mt-6 max-w-2xl mx-auto text-lg md:text-xl text-muted-foreground"
-        >
-          Custom-made, professionally fitted sports mouthguards. Handcrafted
-          protection for AFL & AFLW clubs, junior and senior sport, boxing,
-          individual athletes and schools.
-        </motion.p>
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.25 }}
-          className="mt-8 flex flex-wrap gap-x-6 gap-y-3 justify-center text-base"
-        >
-          <Link to="/products" className="link-brand font-medium">
-            Explore products →
-          </Link>
-          <Link to="/mobile-service" className="link-brand font-medium">
-            Book a mobile fitting →
-          </Link>
-        </motion.div>
-      </section>
-
-      {/* HERO IMAGE */}
-      <Reveal className="px-6">
-        <div className="mx-auto max-w-6xl overflow-hidden rounded-3xl">
+      <section className="relative flex items-end overflow-hidden" style={{ minHeight: "100svh", paddingTop: 64, paddingBottom: "clamp(56px, 8vw, 100px)" }}>
+        <div className="absolute inset-0 overflow-hidden">
           <img
             src={`${SRC}/2021/04/1.jpg`}
-            alt="Custom mouthguard fitting in progress"
-            className="w-full h-[60vh] md:h-[70vh] object-cover"
-            loading="eager"
+            alt=""
+            className="w-full h-full object-cover"
+            style={{ filter: "var(--imgf)" }}
+            fetchPriority="high"
           />
+          <div className="absolute inset-0" style={{ background: "var(--veil)" }} />
         </div>
-      </Reveal>
-
-      {/* STATS */}
-      <section className="px-6 mt-32">
-        <div className="mx-auto max-w-5xl grid grid-cols-3 gap-8 text-center">
-          {[
-            ["24+", "years of experience"],
-            ["80+", "fittings per 2hr session"],
-            ["100%", "handmade in Australia"],
-          ].map(([n, l], i) => (
-            <Reveal key={l} delay={i * 0.1}>
-              <p className="text-5xl md:text-6xl font-semibold tracking-tight">{n}</p>
-              <p className="mt-2 text-sm text-muted-foreground">{l}</p>
-            </Reveal>
-          ))}
+        <div className="relative z-[1] w-full mx-auto" style={{ maxWidth: "var(--maxw)", paddingLeft: "var(--px)", paddingRight: "var(--px)" }}>
+          <motion.span initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }} className="eyebrow mb-5">
+            <span className="rule" />Custom Mouthguards · Australia Wide
+          </motion.span>
+          <motion.h1
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.05 }}
+            className="display"
+            style={{ fontSize: "clamp(64px, 13vw, 170px)", marginBottom: 24, maxWidth: "12ch" }}
+          >
+            Play hard.<br /><span className="acc">Wear a mouthguard.</span>
+          </motion.h1>
+          <motion.p
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.15 }}
+            className="mb-9"
+            style={{ fontSize: "clamp(15px, 2vw, 18px)", color: "var(--muted)", maxWidth: "52ch" }}
+          >
+            Custom-made, professionally fitted sports mouthguards. Handcrafted protection for AFL & AFLW clubs, junior and senior sport, boxing, individual athletes and schools — for over 24 years.
+          </motion.p>
+          <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.25 }} className="flex flex-wrap gap-3 mb-14">
+            <a href="tel:0420444744" className="btn btn--primary">Call 0420 444 744 <Arrow /></a>
+            <Link to="/mobile-service" className="btn btn--ghost">Book mobile fitting <Arrow /></Link>
+          </motion.div>
+          <div className="flex flex-wrap pt-6 border-t" style={{ borderColor: "var(--border)" }}>
+            {[["24+ Years","Experience"],["80+","Fittings / 2hrs"],["AU Made","100% Handcrafted"],["Item 151","Health Rebates"]].map(([v,l]) => (
+              <div key={l} className="hstat">
+                <span className="hstat__val">{v}</span>
+                <span className="hstat__lbl">{l}</span>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
-      {/* MOBILE SERVICE FEATURE */}
-      <section className="px-6 mt-40">
-        <div className="mx-auto max-w-5xl text-center">
-          <Reveal>
-            <p className="text-sm font-medium link-brand">Mobile Service</p>
-            <h2 className="mt-3 text-5xl md:text-6xl font-semibold tracking-tight">
-              We come to your club.
+      {/* TICKER */}
+      <div className="ticker" aria-hidden="true">
+        <div className="ticker__track">
+          {Array.from({ length: 2 }).flatMap((_, k) => (
+            ["CUSTOM MOUTHGUARDS","MOBILE SERVICE","AFL · AFLW","RUGBY · BOXING","SCHOOLS & CLUBS","MADE IN AUSTRALIA"].map((s, i) => (
+              <span key={`${k}-${i}`}>{s}<span className="sep mx-4">◆</span></span>
+            ))
+          ))}
+        </div>
+      </div>
+
+      {/* SERVICES */}
+      <section className="py-[clamp(64px,10vw,120px)]" id="services">
+        <div className="wrap">
+          <Reveal className="mb-12">
+            <span className="kicker"><span className="rule" />What We Do</span>
+            <h2 className="display mt-4" style={{ fontSize: "clamp(38px, 6vw, 82px)" }}>
+              Protecting smiles.<br />Across every sport.
             </h2>
-            <p className="mt-6 text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">
-              A free mobile fitting service for sporting clubs across Australia.
-              Registration days, training nights, family days — juniors or seniors,
-              we travel to you.
-            </p>
-            <Link to="/mobile-service" className="mt-6 inline-block link-brand font-medium">
-              Learn more →
-            </Link>
+          </Reveal>
+          <ul className="svc-list">
+            {services.map((s) => (
+              <Reveal key={s.n}>
+                <li className="svc-row">
+                  <div className="svc-num">{s.n}</div>
+                  <div className="svc-body">
+                    <h3 className="display">{s.t}</h3>
+                    <p>{s.d}</p>
+                  </div>
+                </li>
+              </Reveal>
+            ))}
+          </ul>
+        </div>
+      </section>
+
+      {/* PRODUCTS PREVIEW */}
+      <section className="py-[clamp(64px,10vw,120px)]" style={{ background: "var(--s1)" }}>
+        <div className="wrap">
+          <Reveal className="mb-12">
+            <span className="kicker"><span className="rule" />Our Range</span>
+            <h2 className="display mt-4" style={{ fontSize: "clamp(38px, 6vw, 82px)" }}>
+              A style for<br />every team.
+            </h2>
+          </Reveal>
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-x-10 gap-y-12">
+            {styles.map((s, i) => (
+              <Reveal key={s.name} delay={i * 0.05}>
+                <div className="aspect-square flex items-center justify-center">
+                  <img src={s.img} alt={s.name} loading="lazy" className="max-h-full max-w-full object-contain" />
+                </div>
+                <p className="display mt-4 text-center" style={{ fontSize: 18 }}>{s.name}</p>
+              </Reveal>
+            ))}
+          </div>
+          <Reveal className="mt-12">
+            <Link to="/products" className="btn btn--ghost">See all 16 ranges <Arrow /></Link>
           </Reveal>
         </div>
       </section>
 
       {/* CLINIC FEATURE */}
-      <section className="px-6 mt-40">
-        <div className="mx-auto max-w-6xl grid md:grid-cols-2 gap-12 md:gap-16 items-center">
+      <section className="py-[clamp(64px,10vw,120px)]">
+        <div className="wrap grid md:grid-cols-2 gap-12 md:gap-16 items-center">
           <Reveal>
-            <p className="text-sm font-medium link-brand">Doncaster East Clinic</p>
-            <h2 className="mt-3 text-4xl md:text-5xl font-semibold tracking-tight">
-              A private fitting, in our chair.
+            <span className="kicker"><span className="rule" />Doncaster East Clinic</span>
+            <h2 className="display mt-4" style={{ fontSize: "clamp(32px, 5vw, 60px)" }}>
+              A private fit.<br />In our chair.
             </h2>
-            <p className="mt-5 text-lg text-muted-foreground">
-              Visit our Denture & Mouthguard Clinic for custom mouthguard fittings
-              alongside our full denture services. Crafted to the exact contours of
-              your teeth — made just for you.
+            <p className="mt-5 text-[16px]" style={{ color: "var(--muted)" }}>
+              Visit our Denture & Mouthguard Clinic for custom mouthguard fittings alongside our full denture services. Crafted to the exact contours of your teeth — made just for you.
             </p>
-            <Link to="/denture-clinic" className="mt-5 inline-block link-brand font-medium">
-              Book a visit →
-            </Link>
+            <div className="mt-6">
+              <Link to="/denture-clinic" className="btn btn--ghost">Book a visit <Arrow /></Link>
+            </div>
           </Reveal>
           <Reveal delay={0.1}>
-            <img
-              src={`${SRC}/2018/11/The-Clinic.jpg`}
-              alt="The Doncaster East Denture & Mouthguard Clinic"
-              loading="lazy"
-              className="w-full h-[420px] object-cover rounded-3xl"
-            />
-          </Reveal>
-        </div>
-      </section>
-
-      {/* PRODUCTS PREVIEW */}
-      <section className="px-6 mt-40">
-        <div className="mx-auto max-w-6xl">
-          <Reveal className="text-center">
-            <p className="text-sm font-medium link-brand">Our range</p>
-            <h2 className="mt-3 text-5xl md:text-6xl font-semibold tracking-tight">
-              A style for every team.
-            </h2>
-            <p className="mt-5 text-lg text-muted-foreground max-w-2xl mx-auto">
-              Sixteen design ranges — from clean single colours to bold team
-              logos, fangs, marbles and more.
-            </p>
-          </Reveal>
-
-          <div className="mt-16 grid grid-cols-2 md:grid-cols-3 gap-x-10 gap-y-14">
-            {styles.map((s, i) => (
-              <Reveal key={s.name} delay={i * 0.05}>
-                <div className="aspect-square flex items-center justify-center">
-                  <img
-                    src={s.img}
-                    alt={s.name}
-                    loading="lazy"
-                    className="max-h-full max-w-full object-contain"
-                  />
-                </div>
-                <p className="mt-4 text-center text-sm font-medium">{s.name}</p>
-              </Reveal>
-            ))}
-          </div>
-
-          <Reveal className="mt-12 text-center">
-            <Link to="/products" className="link-brand font-medium">
-              See all 16 ranges →
-            </Link>
-          </Reveal>
-        </div>
-      </section>
-
-      {/* PARTNERSHIP */}
-      <section className="px-6 mt-40">
-        <div className="mx-auto max-w-3xl text-center">
-          <Reveal>
-            <p className="text-sm font-medium link-brand">Preferred Partner</p>
-            <h2 className="mt-3 text-4xl md:text-5xl font-semibold tracking-tight">
-              Guarding and protecting SMJFL footballers.
-            </h2>
-            <p className="mt-5 text-lg text-muted-foreground">
-              The South Metro Junior Football League welcomes SportSafe Australia
-              as a Preferred Mouthguard Partner — extending our service across
-              every club in the league.
-            </p>
-            <Link to="/partners" className="mt-5 inline-block link-brand font-medium">
-              View all partners →
-            </Link>
+            <img src={`${SRC}/2018/11/The-Clinic.jpg`} alt="The Doncaster East Denture & Mouthguard Clinic" loading="lazy" className="w-full h-[420px] object-cover rounded-2xl" />
           </Reveal>
         </div>
       </section>
 
       {/* TESTIMONIALS */}
-      <section className="px-6 mt-40">
-        <div className="mx-auto max-w-6xl">
-          <Reveal className="text-center">
-            <p className="text-sm font-medium link-brand">Testimonials</p>
-            <h2 className="mt-3 text-5xl md:text-6xl font-semibold tracking-tight">
-              What people say.
+      <section className="py-[clamp(64px,10vw,120px)]" style={{ background: "var(--s1)" }}>
+        <div className="wrap">
+          <Reveal className="mb-12">
+            <span className="kicker"><span className="rule" />Testimonials</span>
+            <h2 className="display mt-4" style={{ fontSize: "clamp(38px, 6vw, 82px)" }}>
+              What clubs say.
             </h2>
           </Reveal>
-          <div className="mt-16 grid md:grid-cols-3 gap-12">
+          <div className="grid md:grid-cols-3 gap-10">
             {testimonials.map((t, i) => (
               <Reveal key={t.name} delay={i * 0.08}>
-                <p className="text-lg leading-relaxed">"{t.quote}"</p>
-                <p className="mt-6 text-sm font-medium">{t.name}</p>
-                <p className="text-sm text-muted-foreground">{t.role}</p>
+                <p className="text-[17px] leading-relaxed">"{t.quote}"</p>
+                <p className="display mt-6" style={{ fontSize: 18 }}>{t.name}</p>
+                <p className="text-[11px] font-semibold tracking-[0.18em] uppercase mt-1" style={{ color: "var(--muted)" }}>{t.role}</p>
               </Reveal>
             ))}
           </div>
@@ -252,24 +204,24 @@ function Home() {
       </section>
 
       {/* CTA */}
-      <section className="px-6 mt-40">
-        <div className="mx-auto max-w-3xl text-center">
+      <section className="relative overflow-hidden py-[clamp(80px,12vw,140px)]" style={{ background: "var(--s2)" }}>
+        <div className="absolute pointer-events-none" style={{ top: "-10%", right: "-5%", width: "70vw", height: "70vw", background: "radial-gradient(circle, color-mix(in srgb,var(--accent) 14%,transparent) 0%, transparent 65%)" }} />
+        <div className="wrap relative z-[1]" style={{ maxWidth: 720 }}>
           <Reveal>
-            <h2 className="text-5xl md:text-6xl font-semibold tracking-tight">
-              Ready to protect your team?
+            <span className="kicker"><span className="rule" />Get In Touch</span>
+            <h2 className="display mt-4" style={{ fontSize: "clamp(52px, 9vw, 110px)" }}>
+              Ready to<br />protect your team?
             </h2>
-            <p className="mt-5 text-lg text-muted-foreground">
-              Book a free mobile fitting for your club, or call us to arrange a
-              visit to our Doncaster East clinic.
+            <p className="mt-6 text-[16px]" style={{ color: "var(--muted)", maxWidth: "48ch" }}>
+              Book a free mobile fitting for your club, or call us to arrange a visit to our Doncaster East clinic. Australia-wide service.
             </p>
-            <div className="mt-8 flex flex-wrap gap-x-6 gap-y-3 justify-center text-base">
-              <Link to="/contact" className="link-brand font-medium">
-                Get in touch →
-              </Link>
-              <a href="tel:0420444744" className="link-brand font-medium">
-                Call 0420 444 744 →
-              </a>
+            <div className="mt-9 flex flex-wrap gap-3">
+              <a href="tel:0420444744" className="btn btn--primary">Call 0420 444 744 <Arrow /></a>
+              <Link to="/contact" className="btn btn--ghost">Send a message <Arrow /></Link>
             </div>
+            <p className="mt-7 text-[12px] font-semibold tracking-[0.16em] uppercase" style={{ color: "var(--muted)" }}>
+              1B Jackson Court, Doncaster East VIC 3109
+            </p>
           </Reveal>
         </div>
       </section>
