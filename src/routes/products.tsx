@@ -52,18 +52,24 @@ function Products() {
               <p className="mt-3 text-muted-foreground">{cat.description}</p>
             </Reveal>
             <div className="mt-10 grid grid-cols-2 md:grid-cols-4 gap-x-8 gap-y-10">
-              {cat.images.map((img, i) => (
-                <Reveal key={img} delay={i * 0.04}>
-                  <div className="aspect-square flex items-center justify-center">
-                    <img
-                      src={`${SRC}/${img}`}
-                      alt={`${cat.name} variant ${i + 1}`}
-                      loading="lazy"
-                      className="max-h-full max-w-full object-contain"
-                    />
-                  </div>
-                </Reveal>
-              ))}
+              {cat.images.map((img, i) => {
+                const url = `${SRC}/${img}`;
+                const label = `${cat.name} #${i + 1}`;
+                return (
+                  <Reveal key={img} delay={i * 0.04}>
+                    <SelectableCard item={{ id: `prod:${cat.name}:${img}`, name: label, img: url }}>
+                      <div className="aspect-square flex items-center justify-center">
+                        <img
+                          src={url}
+                          alt={label}
+                          loading="lazy"
+                          className="max-h-full max-w-full object-contain pointer-events-none"
+                        />
+                      </div>
+                    </SelectableCard>
+                  </Reveal>
+                );
+              })}
             </div>
           </div>
         ))}
