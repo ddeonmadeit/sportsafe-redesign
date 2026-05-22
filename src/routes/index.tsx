@@ -224,8 +224,8 @@ function Home() {
       </section>
 
       {/* CTA */}
-      <section className="relative overflow-hidden py-[clamp(80px,12vw,140px)]" style={{ background: "var(--s2)" }}>
-        <div className="absolute pointer-events-none" style={{ top: "-10%", right: "-5%", width: "70vw", height: "70vw", background: "radial-gradient(circle, color-mix(in srgb,var(--accent) 14%,transparent) 0%, transparent 65%)" }} />
+      <section className="dark relative overflow-hidden py-[clamp(80px,12vw,140px)]" style={{ background: "linear-gradient(90deg, #020a18 0%, #03132a 60%, #04182f 100%)", color: "var(--text)" }}>
+        <div className="absolute pointer-events-none" style={{ top: "-10%", right: "-5%", width: "70vw", height: "70vw", background: "radial-gradient(circle, color-mix(in srgb,var(--accent) 18%,transparent) 0%, transparent 65%)" }} />
         <div className="wrap relative z-[1]" style={{ maxWidth: 720 }}>
           <Reveal>
             <span className="kicker"><span className="rule" />Get In Touch</span>
