@@ -54,16 +54,21 @@ function Home() {
   return (
     <PageShell>
       {/* HERO */}
-      <section className="relative flex items-end overflow-hidden" style={{ minHeight: "100svh", paddingTop: 64, paddingBottom: "clamp(56px, 8vw, 100px)" }}>
+      <section className="dark relative flex items-end overflow-hidden" style={{ minHeight: "100svh", paddingTop: 64, paddingBottom: "clamp(56px, 8vw, 100px)", background: "#020a18", color: "var(--text)" }}>
         <div className="absolute inset-0 overflow-hidden">
           <img
             src={heroImage}
             alt=""
             className="w-full h-full object-cover"
-            style={{ filter: "var(--imgf)" }}
             fetchPriority="high"
           />
-          <div className="absolute inset-0" style={{ background: "var(--veil)" }} />
+          <div
+            className="absolute inset-0"
+            style={{
+              background:
+                "linear-gradient(180deg, rgba(2,10,24,0.55) 0%, rgba(2,10,24,0.75) 55%, rgba(2,10,24,0.95) 100%), radial-gradient(120% 80% at 50% 40%, rgba(2,10,24,0.25) 0%, rgba(2,10,24,0.85) 100%)",
+            }}
+          />
         </div>
         <div className="relative z-[1] w-full mx-auto" style={{ maxWidth: "var(--maxw)", paddingLeft: "var(--px)", paddingRight: "var(--px)" }}>
           <motion.span initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }} className="eyebrow mb-5">
