@@ -17,6 +17,7 @@ import { Route as OrthodonticsRouteImport } from './routes/orthodontics'
 import { Route as MobileServiceRouteImport } from './routes/mobile-service'
 import { Route as DentureClinicRouteImport } from './routes/denture-clinic'
 import { Route as ContactRouteImport } from './routes/contact'
+import { Route as AthletesRouteImport } from './routes/athletes'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 
@@ -60,6 +61,11 @@ const ContactRoute = ContactRouteImport.update({
   path: '/contact',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AthletesRoute = AthletesRouteImport.update({
+  id: '/athletes',
+  path: '/athletes',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const AboutRoute = AboutRouteImport.update({
   id: '/about',
   path: '/about',
@@ -74,6 +80,7 @@ const IndexRoute = IndexRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/athletes': typeof AthletesRoute
   '/contact': typeof ContactRoute
   '/denture-clinic': typeof DentureClinicRoute
   '/mobile-service': typeof MobileServiceRoute
@@ -86,6 +93,7 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/athletes': typeof AthletesRoute
   '/contact': typeof ContactRoute
   '/denture-clinic': typeof DentureClinicRoute
   '/mobile-service': typeof MobileServiceRoute
@@ -99,6 +107,7 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/athletes': typeof AthletesRoute
   '/contact': typeof ContactRoute
   '/denture-clinic': typeof DentureClinicRoute
   '/mobile-service': typeof MobileServiceRoute
@@ -113,6 +122,7 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/about'
+    | '/athletes'
     | '/contact'
     | '/denture-clinic'
     | '/mobile-service'
@@ -125,6 +135,7 @@ export interface FileRouteTypes {
   to:
     | '/'
     | '/about'
+    | '/athletes'
     | '/contact'
     | '/denture-clinic'
     | '/mobile-service'
@@ -137,6 +148,7 @@ export interface FileRouteTypes {
     | '__root__'
     | '/'
     | '/about'
+    | '/athletes'
     | '/contact'
     | '/denture-clinic'
     | '/mobile-service'
@@ -150,6 +162,7 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
+  AthletesRoute: typeof AthletesRoute
   ContactRoute: typeof ContactRoute
   DentureClinicRoute: typeof DentureClinicRoute
   MobileServiceRoute: typeof MobileServiceRoute
@@ -218,6 +231,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ContactRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/athletes': {
+      id: '/athletes'
+      path: '/athletes'
+      fullPath: '/athletes'
+      preLoaderRoute: typeof AthletesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/about': {
       id: '/about'
       path: '/about'
@@ -238,6 +258,7 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
+  AthletesRoute: AthletesRoute,
   ContactRoute: ContactRoute,
   DentureClinicRoute: DentureClinicRoute,
   MobileServiceRoute: MobileServiceRoute,
