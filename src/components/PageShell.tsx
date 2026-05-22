@@ -30,23 +30,25 @@ export function PageHero({
   description?: string;
 }) {
   return (
-    <section className="px-6 pt-20 pb-16 md:pt-28 md:pb-20">
-      <div className="mx-auto max-w-4xl text-center">
+    <section className="px-[var(--px)] pt-24 pb-16 md:pt-32 md:pb-20">
+      <div className="mx-auto" style={{ maxWidth: "var(--maxw)" }}>
         {eyebrow && (
-          <motion.p
+          <motion.span
             initial={{ opacity: 0, y: 8 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="text-sm font-medium link-brand"
+            className="kicker"
           >
+            <span className="rule" />
             {eyebrow}
-          </motion.p>
+          </motion.span>
         )}
         <motion.h1
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.05 }}
-          className="mt-3 text-5xl md:text-7xl font-semibold tracking-tight"
+          className="display mt-5"
+          style={{ fontSize: "clamp(48px, 9vw, 120px)" }}
         >
           {title}
         </motion.h1>
@@ -55,7 +57,8 @@ export function PageHero({
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.15 }}
-            className="mt-5 text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto"
+            className="mt-6 text-lg md:text-xl max-w-2xl"
+            style={{ color: "var(--muted)" }}
           >
             {description}
           </motion.p>
