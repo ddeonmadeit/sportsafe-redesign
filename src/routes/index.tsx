@@ -231,8 +231,8 @@ function Home() {
               Book a free mobile fitting for your club, or call us to arrange a visit to our Doncaster East clinic. Australia-wide service.
             </p>
             <div className="mt-9 flex flex-wrap gap-3">
-              <a href="tel:0420444744" className="btn btn--primary">Call 0420 444 744 <Arrow /></a>
-              <Link to="/contact" className="btn btn--ghost">Send a message <Arrow /></Link>
+              <Link to="/contact" className="btn btn--primary">Contact us <Arrow /></Link>
+              <Link to="/mobile-service" className="btn btn--ghost">Book mobile fitting <Arrow /></Link>
             </div>
             <p className="mt-7 text-[12px] font-semibold tracking-[0.16em] uppercase" style={{ color: "var(--muted)" }}>
               1B Jackson Court, Doncaster East VIC 3109
