@@ -2,6 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { motion } from "framer-motion";
 import { PageShell, Reveal } from "@/components/PageShell";
 import { PartnersMarquee } from "@/components/PartnersMarquee";
+import heroImage from "@/assets/hero.png";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -56,7 +57,7 @@ function Home() {
       <section className="relative flex items-end overflow-hidden" style={{ minHeight: "100svh", paddingTop: 64, paddingBottom: "clamp(56px, 8vw, 100px)" }}>
         <div className="absolute inset-0 overflow-hidden">
           <img
-            src={`${SRC}/2021/04/1.jpg`}
+            src={heroImage}
             alt=""
             className="w-full h-full object-cover"
             style={{ filter: "var(--imgf)" }}
