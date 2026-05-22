@@ -1,13 +1,17 @@
-const SRC = "https://www.sportsafeaustralia.com.au/wp-content/uploads";
+import smj from "@/assets/partners/smj.png";
+import blues from "@/assets/partners/blues.png";
+import swans from "@/assets/partners/swans.jpeg";
+import gymea from "@/assets/partners/gymea.png";
+import rookieme from "@/assets/partners/rookieme.png";
+import pure from "@/assets/partners/pure.png";
 
 const partners = [
-  { name: "South Metro Junior Football League", img: `${SRC}/2018/11/SMJ-150x150.png` },
-  { name: "Northern Blues VFL", img: `${SRC}/2018/11/BluesPortrait-128x128.png` },
-  { name: "South Melbourne Swans", img: `${SRC}/2018/11/swans.jpeg` },
-  { name: "Gymea Gorillas JRLFC", img: `${SRC}/2018/11/gymea-300x292.png` },
-  { name: "RookieMe", img: `${SRC}/2018/11/RookieMe-150x150.png` },
-  { name: "Pure", img: `${SRC}/2018/11/Pure-150x150.png` },
-  
+  { name: "South Metro Junior Football League", img: smj },
+  { name: "Northern Blues VFL", img: blues },
+  { name: "South Melbourne Swans", img: swans },
+  { name: "Gymea Gorillas JRLFC", img: gymea },
+  { name: "RookieMe", img: rookieme },
+  { name: "Pure", img: pure },
 ];
 
 export function PartnersMarquee() {
@@ -25,8 +29,9 @@ export function PartnersMarquee() {
             <img
               src={p.img}
               alt={p.name}
-              loading="lazy"
-              className="max-h-full w-auto object-contain opacity-80 hover:opacity-100 transition-opacity"
+              loading="eager"
+              decoding="async"
+              className="max-h-full w-auto object-contain opacity-80 transition-opacity"
               style={{ filter: "grayscale(15%)" }}
             />
           </div>
