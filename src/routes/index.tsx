@@ -156,10 +156,12 @@ function Home() {
           <div className="grid grid-cols-2 md:grid-cols-3 gap-x-10 gap-y-12">
             {styles.map((s, i) => (
               <Reveal key={s.name} delay={i * 0.05}>
-                <div className="aspect-square flex items-center justify-center">
-                  <img src={s.img} alt={s.name} loading="lazy" className="max-h-full max-w-full object-contain" />
-                </div>
-                <p className="display mt-4 text-center" style={{ fontSize: 18 }}>{s.name}</p>
+                <SelectableCard item={{ id: `home:${s.name}`, name: s.name, img: s.img }}>
+                  <div className="aspect-square flex items-center justify-center">
+                    <img src={s.img} alt={s.name} loading="lazy" className="max-h-full max-w-full object-contain pointer-events-none" />
+                  </div>
+                  <p className="display mt-4 text-center" style={{ fontSize: 18 }}>{s.name}</p>
+                </SelectableCard>
               </Reveal>
             ))}
           </div>
