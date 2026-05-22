@@ -58,13 +58,13 @@ export function Header() {
       </nav>
 
       <div className="flex items-center gap-2 ml-auto lg:ml-0 flex-shrink-0">
-        <a
-          href="tel:0420444744"
+        <Link
+          to="/contact"
           className="hidden md:inline-flex items-center rounded-full px-5 py-2.5 text-[12px] font-bold tracking-[0.18em] uppercase"
           style={{ background: "var(--accent)", color: "var(--on-accent)" }}
         >
-          Call us
-        </a>
+          Contact us
+        </Link>
         <button
           onClick={() => setOpen((v) => !v)}
           className="lg:hidden p-2"
