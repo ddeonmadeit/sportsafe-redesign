@@ -19,7 +19,6 @@ const nav: NavItem[] = [
   { to: "/products", label: "Products" },
   { label: "Services", children: services },
   { to: "/athletes", label: "Athletes" },
-  { to: "/partners", label: "Partners" },
   { to: "/testimonials", label: "Reviews" },
   { to: "/contact", label: "Contact" },
 ];
