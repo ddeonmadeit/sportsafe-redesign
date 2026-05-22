@@ -39,11 +39,8 @@ export function Header() {
         paddingRight: "var(--px)",
       }}
     >
-      <Link to="/" className="flex items-center gap-3 flex-shrink-0">
-        <img src={logo} alt="SportSafe Australia" className="h-7 w-auto" />
-        <span className="display text-[17px] tracking-[0.06em] hidden sm:inline">
-          SportSafe Australia
-        </span>
+      <Link to="/" className="flex items-center flex-shrink-0">
+        <img src={logo} alt="SportSafe Australia" className="h-8 w-auto" />
       </Link>
 
       <nav className="hidden lg:flex items-center gap-7 ml-auto">
