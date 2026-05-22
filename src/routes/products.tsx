@@ -44,14 +44,14 @@ function Products() {
         description="Sixteen ranges of professionally fitted, custom-made mouthguard styles — from clean single colours to bold team designs."
       />
 
-      <section className="px-6 space-y-24">
+      <section className="px-6 space-y-12">
         {categories.map((cat) => (
           <div key={cat.name} className="mx-auto max-w-6xl">
             <Reveal className="text-center max-w-2xl mx-auto">
               <h2 className="text-3xl md:text-4xl font-semibold tracking-tight">{cat.name}</h2>
-              <p className="mt-3 text-muted-foreground">{cat.description}</p>
+              <p className="mt-2 text-sm text-muted-foreground">{cat.description}</p>
             </Reveal>
-            <div className="mt-10 grid grid-cols-2 md:grid-cols-4 gap-x-8 gap-y-10">
+            <div className="mt-5 grid grid-cols-3 md:grid-cols-5 gap-x-4 gap-y-3">
               {cat.images.map((img, i) => {
                 const url = `${SRC}/${img}`;
                 const label = `${cat.name} #${i + 1}`;
