@@ -66,7 +66,7 @@ function Home() {
             className="absolute inset-0"
             style={{
               background:
-                "linear-gradient(180deg, rgba(2,10,24,0.55) 0%, rgba(2,10,24,0.75) 55%, rgba(2,10,24,0.95) 100%), radial-gradient(120% 80% at 50% 40%, rgba(2,10,24,0.25) 0%, rgba(2,10,24,0.85) 100%)",
+                "linear-gradient(90deg, rgba(2,10,24,0.96) 0%, rgba(2,10,24,0.85) 35%, rgba(2,10,24,0.55) 70%, rgba(2,10,24,0.35) 100%)",
             }}
           />
         </div>
