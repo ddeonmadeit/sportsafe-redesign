@@ -1,6 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useState } from "react";
+import { useEffect, useMemo, useState } from "react";
+import { X } from "lucide-react";
 import { PageShell, PageHero, Reveal } from "@/components/PageShell";
+import { clearSelection, toggleSelection, useSelection } from "@/lib/selection";
 
 export const Route = createFileRoute("/contact")({
   head: () => ({
