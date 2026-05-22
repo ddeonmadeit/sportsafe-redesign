@@ -11,7 +11,7 @@ export function PageShell({ children }: { children: ReactNode }) {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-        className="pt-14"
+        className="pt-16"
       >
         {children}
       </motion.main>
