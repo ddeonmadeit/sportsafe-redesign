@@ -7,7 +7,7 @@ const partners = [
   { name: "Gymea Gorillas JRLFC", img: `${SRC}/2018/11/gymea-300x292.png` },
   { name: "RookieMe", img: `${SRC}/2018/11/RookieMe-150x150.png` },
   { name: "Pure", img: `${SRC}/2018/11/Pure-150x150.png` },
-  { name: "Garside & Whateley Boxing", img: `${SRC}/2018/12/GarsideWhateleyBannerV2.png` },
+  
 ];
 
 export function PartnersMarquee() {
