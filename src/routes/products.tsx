@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { PageShell, PageHero, Reveal } from "@/components/PageShell";
+import { SelectableCard } from "@/components/SelectionBar";
 
 export const Route = createFileRoute("/products")({
   head: () => ({
