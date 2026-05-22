@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { motion } from "framer-motion";
 import { PageShell, Reveal } from "@/components/PageShell";
+import { PartnersMarquee } from "@/components/PartnersMarquee";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -180,6 +181,19 @@ function Home() {
             <img src={`${SRC}/2018/11/The-Clinic.jpg`} alt="The Doncaster East Denture & Mouthguard Clinic" loading="lazy" className="w-full h-[420px] object-cover rounded-2xl" />
           </Reveal>
         </div>
+      </section>
+
+      {/* PARTNERS */}
+      <section className="py-[clamp(56px,8vw,100px)] border-y" style={{ borderColor: "var(--border)" }}>
+        <div className="wrap">
+          <Reveal className="mb-10 text-center">
+            <span className="kicker justify-center"><span className="rule" />Our Partners</span>
+            <h2 className="display mt-4" style={{ fontSize: "clamp(32px, 5vw, 60px)" }}>
+              Trusted by Australian sport.
+            </h2>
+          </Reveal>
+        </div>
+        <PartnersMarquee />
       </section>
 
       {/* TESTIMONIALS */}

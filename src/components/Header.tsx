@@ -1,7 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
-import { ThemeToggle } from "./ThemeToggle";
 import logo from "@/assets/logo.jpg";
 
 const nav = [
@@ -62,7 +61,6 @@ export function Header() {
       </nav>
 
       <div className="flex items-center gap-2 ml-auto lg:ml-0 flex-shrink-0">
-        <ThemeToggle />
         <a
           href="tel:0420444744"
           className="hidden md:inline-flex items-center rounded-full px-5 py-2.5 text-[12px] font-bold tracking-[0.18em] uppercase"

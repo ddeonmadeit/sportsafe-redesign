@@ -153,6 +153,21 @@
   .ticker__track .sep { color: color-mix(in srgb, var(--on-accent) 45%, transparent); }
   @keyframes ticker { from { transform: translateX(0); } to { transform: translateX(-50%); } }
 
+  /* Marquee (logo carousel) */
+  .marquee {
+    overflow: hidden;
+    position: relative;
+    mask-image: linear-gradient(90deg, transparent 0, #000 8%, #000 92%, transparent 100%);
+    -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 8%, #000 92%, transparent 100%);
+  }
+  .marquee__track {
+    display: flex; align-items: center; gap: 72px;
+    width: max-content;
+    animation: marquee 40s linear infinite;
+  }
+  .marquee:hover .marquee__track { animation-play-state: paused; }
+  @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
   /* Service rows */
   .svc-list { border-top: 1px solid var(--border2); }
   .svc-row {
