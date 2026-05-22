@@ -28,13 +28,10 @@ export function Header() {
 
   return (
     <header
-      className="fixed top-0 inset-x-0 z-50 h-16 flex items-center gap-8 border-b transition-colors"
+      className="fixed top-0 inset-x-0 z-50 h-16 flex items-center gap-8 border-b"
       style={{
-        background: scrolled
-          ? "color-mix(in srgb, var(--bg) 88%, transparent)"
-          : "transparent",
+        background: "#ffffff",
         borderColor: scrolled ? "var(--border)" : "transparent",
-        backdropFilter: scrolled ? "blur(10px)" : "none",
         paddingLeft: "var(--px)",
         paddingRight: "var(--px)",
       }}
