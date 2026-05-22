@@ -183,6 +183,19 @@ function Home() {
         </div>
       </section>
 
+      {/* PARTNERS */}
+      <section className="py-[clamp(56px,8vw,100px)] border-y" style={{ borderColor: "var(--border)" }}>
+        <div className="wrap">
+          <Reveal className="mb-10 text-center">
+            <span className="kicker justify-center"><span className="rule" />Our Partners</span>
+            <h2 className="display mt-4" style={{ fontSize: "clamp(32px, 5vw, 60px)" }}>
+              Trusted by Australian sport.
+            </h2>
+          </Reveal>
+        </div>
+        <PartnersMarquee />
+      </section>
+
       {/* TESTIMONIALS */}
       <section className="py-[clamp(64px,10vw,120px)]" style={{ background: "var(--s1)" }}>
         <div className="wrap">
