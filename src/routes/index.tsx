@@ -2,6 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { motion } from "framer-motion";
 import { PageShell, Reveal } from "@/components/PageShell";
 import { PartnersMarquee } from "@/components/PartnersMarquee";
+import heroImage from "@/assets/hero.png";
 
 export const Route = createFileRoute("/")({
   head: () => ({
